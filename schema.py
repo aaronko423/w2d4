@@ -29,7 +29,12 @@ class Schema:
             f'''ALTER TABLE {table_name}
                 ADD COLUMN {column_name} {column_type};''')
 
-if __name__ == "__main__":
-    #Schema().create_table("user_info")
+def build_user():
+    Schema().create_table("user_info")
+    Schema().modify_table("user_info", "username", "VARCHAR")
     Schema().modify_table("user_info", "password", "VARCHAR")
+    Schema().modify_table("user_info", "realname", "VARCHAR")
     Schema().modify_table("user_info", "balance", "FLOAT")
+
+if __name__ == "__main__":
+    build_user()
